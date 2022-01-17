@@ -1,0 +1,44 @@
+{% extends "app/base.html"   %}
+{% block title %}
+<title>Home </title>
+
+{% endblock title %}
+
+{%   block body %}
+
+<div>
+  {% for message in messages %}
+  <h3>{{ message }}</h3>
+  {% endfor %}
+</div>
+
+{% load static %}
+<div class="container my-3">
+    
+
+    
+  <div class="row mb-2">
+    {% for blog in blog %}
+      <div class="col-md-6">
+        <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="col p-4 d-flex flex-column position-static">
+          
+            <h3 class="mb-0">{{blog.title}}</h3>
+            
+            <div class="mb-1 text-muted">{{post.text}}</div>
+
+            <div>
+            <p class="card-text mb-auto">{{blog.user}}</p>
+          </div>
+
+            
+            {% comment %} <a href="BlogDetail/{{blog.id}}" class="stretched-link  btn btn-primary"  >Continue reading</a>
+          </div> {% endcomment %}
+          
+        </div>
+        
+      </div>
+      {% endfor %}
+  </div>
+
+{% endblock body %}

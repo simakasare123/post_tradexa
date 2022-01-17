@@ -1,0 +1,39 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Employee Records</title>  
+     {% load staticfiles %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+<table class="table table-striped table-bordered table-sm">  
+    <thead class="thead-dark">  
+    <tr>  
+        <th>ID</th>  
+        <th>Name</th>  
+        <th>Weight</th>  
+        <th>Price</th>  
+        <th>Actions</th>  
+    </tr>  
+    </thead>  
+    <tbody>  
+{% for product in products %}  
+    <tr>  
+        <td>{{ product.id }}</td>  
+        <td>{{ product.name }}</td>  
+        <td>{{ product.weight }}</td>  
+        <td>{{ product.price }}</td>  
+        <td>  
+            <a href="/edit/{{ product.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+            <a href="/delete/{{ product.id }}">Delete</a>  
+        </td>  
+    </tr>  
+{% endfor %}  
+    </tbody>  
+</table>  
+<br>  
+<br>  
+<center><a href="/product" class="btn btn-primary">Add New Record</a></center>  
+</body>  
+</html>  
